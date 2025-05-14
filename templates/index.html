@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News.kg</title>
+    <style>
+        /* Жалпы баракча стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Контейнер */
+        .container {
+            width: 85%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Баш аталышы */
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Жаңылык карточкасы */
+        .news-card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hover эффекти */
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Сүрөт */
+        .news-card img {
+            width: 100px; /* Кичине формат */
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        /* Текст блогу */
+        .news-text {
+            text-align: left;
+            flex: 1;
+        }
+
+        /* Жаңылык аталышы */
+        .news-text h1 {
+            font-size: 18px;
+            color: #222;
+            margin: 5px 0;
+        }
+
+        /* Жаңылык сүрөттөмөсү */
+        .news-text h3 {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Дата */
+        .news-text h4 {
+            font-size: 12px;
+            color: #777;
+            margin: 5px 0;
+        }
+
+        /* Responsive (Телефонго ылайыкташтыруу) */
+        @media (max-width: 600px) {
+            .news-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .news-card img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>News.kg</h2>
+    {% for l in news %}
+    <div class="news-card">
+        <img src="{{ l.image.url }}" alt="News Image">
+        <div class="news-text">
+            <h1>{{ l.title }}</h1>
+            <h3>{{ l.description }}</h3>
+            <h4>{{ l.date }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
